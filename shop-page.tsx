@@ -72,26 +72,27 @@ export default function ShopPage() {
             </div>
 
             {/* Search */}
-            <div className="flex items-center gap-2">
-              <Input type="search" placeholder="Search for products" className="w-[200px] md:w-[300px]" />
-              <Button variant="default" className="bg-gray-900 hover:bg-gray-800">
-                Search
-              </Button>
+            <div className="flex items-center gap-2 flex-1 justify-end max-w-md">
+              <Input type="search" placeholder="Search for products" className="max-w-[300px]" />
+              <Button className="bg-gray-900 hover:bg-gray-800">Search</Button>
             </div>
           </div>
         </div>
       </div>
 
       {/* Main Content */}
-      <main className="max-w-[1200px] mx-auto px-4 py-8">
+      <div className="max-w-[1200px] mx-auto px-4 py-8">
         {/* Categories */}
         <div className="mb-8">
           <h2 className="text-base font-medium mb-4">Category</h2>
           <div className="flex gap-2">
             {["All", "T-shirts", "Pants", "Jacket"].map((category) => (
-              <Button key={category} variant="ghost" className="text-gray-600 hover:text-black hover:bg-gray-200">
+              <button
+                key={category}
+                className="px-4 py-2 text-sm text-gray-600 hover:text-black hover:bg-gray-200 rounded-md transition-colors"
+              >
                 {category}
-              </Button>
+              </button>
             ))}
           </div>
         </div>
@@ -111,7 +112,7 @@ export default function ShopPage() {
             </div>
           ))}
         </div>
-      </main>
+      </div>
     </div>
   )
 }
