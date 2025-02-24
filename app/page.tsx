@@ -1,7 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 
 export default function ShopPage() {
   const products = [
@@ -73,7 +72,11 @@ export default function ShopPage() {
 
             {/* Search */}
             <div className="flex items-center gap-2">
-              <Input type="search" placeholder="Search for products" className="w-[200px] md:w-[300px]" />
+              <input
+                type="search"
+                placeholder="Search for products"
+                className="w-[200px] md:w-[300px] h-10 px-3 py-2 rounded-md border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-200"
+              />
               <Button variant="default" className="bg-gray-900 hover:bg-gray-800">
                 Search
               </Button>
