@@ -2,51 +2,19 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import Image from "next/image"
 import Link from "next/link"
 
-export default function ProductList() {
-  const products = [
-    {
-      id: 1,
-      name: "베이직 티셔츠",
-      price: "29,000",
-      category: "티셔츠",
-      image: "/placeholder.svg?height=400&width=400",
-    },
-    {
-      id: 2,
-      name: "슬림핏 청바지",
-      price: "59,000",
-      category: "바지",
-      image: "/placeholder.svg?height=400&width=400",
-    },
-    {
-      id: 3,
-      name: "데님 자켓",
-      price: "89,000",
-      category: "자켓",
-      image: "/placeholder.svg?height=400&width=400",
-    },
-    {
-      id: 4,
-      name: "오버핏 티셔츠",
-      price: "35,000",
-      category: "티셔츠",
-      image: "/placeholder.svg?height=400&width=400",
-    },
-    {
-      id: 5,
-      name: "와이드 슬랙스",
-      price: "65,000",
-      category: "바지",
-      image: "/placeholder.svg?height=400&width=400",
-    },
-    {
-      id: 6,
-      name: "가죽 자켓",
-      price: "129,000",
-      category: "자켓",
-      image: "/placeholder.svg?height=400&width=400",
-    },
-  ]
+interface Product {
+  category_id: string;
+  id: string;
+  name: string;
+  price: number;
+  image_url: string;
+}
+
+interface ProductListProps {
+  products: Product[];
+}
+
+export function ProductList({ products }: ProductListProps) {
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -69,12 +37,12 @@ export default function ProductList() {
           <Link key={product.id} href={`/products/${product.id}`} className="group">
             <div className="border rounded-lg overflow-hidden transition-shadow hover:shadow-lg">
               <div className="relative aspect-square">
-                <Image src={product.image || "/placeholder.svg"} alt={product.name} fill className="object-cover" />
+                <Image src={product.image_url || "/placeholder.svg"} alt={product.name} fill className="object-cover" />
               </div>
               <div className="p-4">
                 <h3 className="text-lg font-medium mb-2 group-hover:text-primary transition-colors">{product.name}</h3>
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-muted-foreground">{product.category}</span>
+                  <span className="text-sm text-muted-foreground">{product.category_id}</span>
                   <span className="font-semibold">￦{product.price}</span>
                 </div>
               </div>

@@ -3,52 +3,19 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 
-export default function ShopPage() {
-  const products = [
-    {
-      id: 1,
-      name: "Running Shoes",
-      price: 150,
-      description: "The perfect shoes for your morning run.",
-      image: "/placeholder.svg?height=300&width=300",
-    },
-    {
-      id: 2,
-      name: "Hiking Boots",
-      price: 200,
-      description: "Conquer any trail with these sturdy boots.",
-      image: "/placeholder.svg?height=300&width=300",
-    },
-    {
-      id: 3,
-      name: "Casual Sneakers",
-      price: 100,
-      description: "Stylish and comfortable sneakers for everyday wear.",
-      image: "/placeholder.svg?height=300&width=300",
-    },
-    {
-      id: 4,
-      name: "Basketball Shoes",
-      price: 180,
-      description: "High-performance shoes for the court.",
-      image: "/placeholder.svg?height=300&width=300",
-    },
-    {
-      id: 5,
-      name: "Soccer Cleats",
-      price: 120,
-      description: "Lightweight and agile cleats for the pitch.",
-      image: "/placeholder.svg?height=300&width=300",
-    },
-    {
-      id: 6,
-      name: "Running Shoes",
-      price: 150,
-      description: "The perfect shoes for your morning run.",
-      image: "/placeholder.svg?height=300&width=300",
-    },
-  ]
+interface Product {
+  category_id: string;
+  id: string;
+  name: string;
+  price: number;
+  image_url: string;
+}
 
+interface ProductListProps {
+  products: Product[];
+}
+
+export function ProductList({products}: ProductListProps) {
   return (
     <div className="min-h-screen bg-gray-100">
       {/* Header */}
@@ -102,12 +69,12 @@ export default function ShopPage() {
           {products.map((product) => (
             <div key={product.id} className="bg-white rounded-lg overflow-hidden hover:shadow-md transition-shadow">
               <div className="relative aspect-square">
-                <Image src={product.image || "/placeholder.svg"} alt={product.name} fill className="object-cover" />
+                <Image src={product.image_url || "/placeholder.svg"} alt={product.name} fill className="object-cover" />
               </div>
               <div className="p-4">
                 <h3 className="text-lg font-medium">{product.name}</h3>
                 <p className="text-xl font-bold mt-1">${product.price}</p>
-                <p className="text-sm text-gray-600 mt-2">{product.description}</p>
+                {/* <p className="text-sm text-gray-600 mt-2">{product.description}</p> */}
               </div>
             </div>
           ))}

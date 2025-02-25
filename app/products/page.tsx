@@ -1,12 +1,13 @@
+'use client';
 import { useEffect, useState } from 'react';
-import ProductList from "@/shop-page";
+import { ProductList } from "@/shop-page";
 
 const Page = () => {
     const [products, setProducts] = useState(null);
 
     useEffect(() => {
         async function fetchData() {
-            const res = await fetch('https://api.example.com/products');
+            const res = await fetch('/api/products');
             const data = await res.json();
             setProducts(data);
         }
@@ -18,7 +19,7 @@ const Page = () => {
 
     return (
         <div>
-            <ProductList />
+            <ProductList products={products} />
         </div>
     );
 }
