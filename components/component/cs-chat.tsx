@@ -36,7 +36,7 @@ export function CsChat() {
   
     async function fetchData() {
       try {
-        const res = await fetch(`http://localhost:8000/chat?user_input=${encodeURIComponent(userInput)}`);
+        const res = await fetch(`https://afbc-1-231-140-183.ngrok-free.app/chat?user_input=${encodeURIComponent(userInput)}`);
         if (!res.ok) {
           throw new Error(`HTTP error! Status: ${res.status}`);
         }
