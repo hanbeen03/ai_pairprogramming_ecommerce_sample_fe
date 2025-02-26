@@ -34,9 +34,11 @@ export function CsChat() {
   
     setWaitingForResponse(true);
   
+    const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/chat";
+
     async function fetchData() {
       try {
-        const res = await fetch(`https://afbc-1-231-140-183.ngrok-free.app/chat?user_input=${encodeURIComponent(userInput)}`);
+        const res = await fetch(`${API_URL}/chat?user_input=${encodeURIComponent(userInput)}`);
         if (!res.ok) {
           throw new Error(`HTTP error! Status: ${res.status}`);
         }
