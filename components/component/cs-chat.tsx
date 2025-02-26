@@ -34,7 +34,7 @@ export function CsChat() {
   
     setWaitingForResponse(true);
   
-    const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/chat";
+    const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
     async function fetchData() {
       try {
