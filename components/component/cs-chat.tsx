@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Card, CardContent } from "@/components/ui/card"
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 export function CsChat() {
   const [response, setResponse] = useState(null);
